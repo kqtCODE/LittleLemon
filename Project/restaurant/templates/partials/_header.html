@@ -1,0 +1,18 @@
+{% load static %}
+<header>
+  <img src="{% static 'img/logo.png' %}" />
+</header>
+<nav>
+  <ul>
+    <li><a href="{% url 'restaurant:home' %}">Home</a></li>
+    <li><a href="{% url 'restaurant:about' %}">About</a></li>
+    <li><a href="{% url 'restaurant:menu' %}">Menu</a></li>
+    <li><a href="{% url 'restaurant:book' %}">Book</a></li>
+    <li><a href="{% url 'restaurant:bookings' %}">Reservations</a></li>
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}">Click here to logout {{user.username}}</a></li>
+    {% else %}
+      <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+  </ul>
+</nav>
